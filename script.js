@@ -15,7 +15,6 @@ const getUserUrl= (url) => {
 fetch(`https://api.github.com/users/${getUserUrl(url)}`)
   .then(res => res.json())
   .then(json => {
-
     let avatar = document.createElement('img'),
       userName = document.createElement('h2'),
       userDesc = document.createElement('p'),
@@ -36,7 +35,6 @@ fetch(`https://api.github.com/users/${getUserUrl(url)}`)
       } else {
         userDesc.innerHTML = 'Информация о пользователе недоступна';
       }
-
     body.prepend(avatar, userName, userDesc, userLink);
   })
   .catch(err => alert('Информация о пользователе недоступна'));
