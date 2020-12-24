@@ -1,20 +1,21 @@
 window.setTimeout(function () {
   document.body.classList.add('loaded');
   let body = document.body;
+  let name = 'lucas';
   let newUser;
-  let url = window.location.toString();
+  let href = document.location.href;
 
-  const getUserUrl= (url) => {
-    let getUrl = url.split('=');
-    let userName = getUrl[1]; //
-    if (userName == undefined) {
-      userName = 'lucas';
-    }
-    console.log(userName);
-    return userName;
+  const getUserUrl= () => {
+    let user = href.split('=');
+    if (user[1]) {
+      userName = user[1];
+    } else {
+      userName = name
+    };
+    return 'https://api.github.com/users/' + userName;
   }
 
-  let getUrl = getUserUrl(url);
+  let getUrl = getUserUrl();
 
   const date = new Date();
 
